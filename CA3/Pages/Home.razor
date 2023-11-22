@@ -1,44 +1,27 @@
 ﻿@page "/"
 @inject HttpClient Http
+@using Microsoft.AspNetCore.Components.QuickGrid
 
 <PageTitle>Breweries</PageTitle>
 
-@if (data == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Brewery Type</th>
-                <th>Website</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var entry in data)
-            {
-                <tr>
-                    <td>@entry.name</td>
-                    <td>@entry.brewery_type</td>
-                    <td><a href="@entry.website_url" target="_blank">@entry.website_url</a></td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+
+
+<QuickGrid Items="@data1">
+    <PropertyColumn Property="@(p => p.name)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.brewery_type)" Sortable="true" />
+</QuickGrid>
 
 
 @code {
     private Brewery[] data;
+    private IQueryable<Brewery> data1 ;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
             data = await Http.GetFromJsonAsync<Brewery[]>("https://api.openbrewerydb.org/v1/breweries?by_country=ireland");
+            data1 = data.AsQueryable();
         }
         catch (Exception e)
         {
