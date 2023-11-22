@@ -1,11 +1,7 @@
 ﻿@page "/"
 @inject HttpClient Http
 
-<PageTitle>Home</PageTitle>
-
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
+<PageTitle>Breweries</PageTitle>
 
 @if (data == null)
 {
@@ -40,7 +36,6 @@ else
     {
         try
         {
-            //data = await Http.GetFromJsonAsync<TiobeIndexEntry[]>("http://localhost:7071/api/TiobeIndex");
             data = await Http.GetFromJsonAsync<Brewery[]>("https://api.openbrewerydb.org/v1/breweries");
         }
         catch (Exception e)
