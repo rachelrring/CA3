@@ -5,23 +5,21 @@
 <PageTitle>Breweries</PageTitle>
 
 
-
-<QuickGrid Items="@data1">
+<QuickGrid Items="@data">
     <PropertyColumn Property="@(p => p.name)" Sortable="true" />
     <PropertyColumn Property="@(p => p.brewery_type)" Sortable="true" />
 </QuickGrid>
 
-
 @code {
-    private Brewery[] data;
-    private IQueryable<Brewery> data1 ;
+    private Brewery[] items;
+    private IQueryable<Brewery> data;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            data = await Http.GetFromJsonAsync<Brewery[]>("https://api.openbrewerydb.org/v1/breweries?by_country=ireland");
-            data1 = data.AsQueryable();
+            items = await Http.GetFromJsonAsync<Brewery[]>("https://api.openbrewerydb.org/v1/breweries?by_country=ireland");
+            data = data.AsQueryable();
         }
         catch (Exception e)
         {
