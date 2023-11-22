@@ -1,7 +1,73 @@
 ﻿@page "/"
+@inject HttpClient Http
 
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+@if (data == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Brewery Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entry in data)
+            {
+                <tr>
+                    <td>@entry.name</td>
+                    <td>@entry.brewery_type</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private Brewery[] data;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            //data = await Http.GetFromJsonAsync<TiobeIndexEntry[]>("http://localhost:7071/api/TiobeIndex");
+            data = await Http.GetFromJsonAsync<Brewery[]>("https://api.openbrewerydb.org/v1/breweries");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            throw e;
+        }
+
+    }
+
+    public class Brewery
+    {
+        public string id { get; set; }
+        public string name { get; set; }
+        public string brewery_type { get; set; }
+        public string address_1 { get; set; }
+        public string? address_2 { get; set; }
+        public string? address_3 { get; set; }
+        public string city { get; set; }
+        public string state_province { get; set; }
+        public string postal_code { get; set; }
+        public string country { get; set; }
+        public string longitude { get; set; }
+        public string latitude { get; set; }
+        public string phone { get; set; }
+        public string website_url { get; set; }
+        public string state { get; set; }
+        public string street { get; set; }
+    }
+}
