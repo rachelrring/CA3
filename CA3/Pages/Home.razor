@@ -4,13 +4,25 @@
 
 <PageTitle>Breweries</PageTitle>
 
+<div class="page-size-chooser">
+    Items per page:
+    <select @bind="@pagination.ItemsPerPage">
+        <option>5</option>
+        <option>10</option>
+        <option>20</option>
+        <option>50</option>
+    </select>
+</div>
 
-<QuickGrid Items="@data">
+<QuickGrid Items="@data" Pagination="@pagination">
     <PropertyColumn Property="@(p => p.name)" Sortable="true" />
     <PropertyColumn Property="@(p => p.brewery_type)" Sortable="true" />
 </QuickGrid>
 
+<Paginator State="@pagination" />
+
 @code {
+    PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
     private Brewery[] items;
     private IQueryable<Brewery> data;
 
@@ -19,7 +31,7 @@
         try
         {
             items = await Http.GetFromJsonAsync<Brewery[]>("https://api.openbrewerydb.org/v1/breweries?by_country=ireland");
-            data = data.AsQueryable();
+            data = items.AsQueryable();
         }
         catch (Exception e)
         {
