@@ -2,38 +2,38 @@
 @page "/brewery/{breweryId}"
 @inject HttpClient Http
 
-<PageTitle>Counter</PageTitle>
-
-<h1>Counter</h1>
-
-<p role="status">Current count: @currentCount</p>
-
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
-
-@if (breweryId != null)
+@if (pub == null)
 {
-    <h1>@breweryId</h1>
+    <p>there has been an error</p>
 }
-
-@if (data != null)
+else
 {
+    <PageTitle>@pub.name</PageTitle>
     <ul>
-        <li>@data.name</li>
+        <li>@pub.name</li>
     </ul>
+    <div id="google-maps-display" style="height:100%; width:100%;max-width:100%;">
+        <iframe style="height:100%;width:100%;border:0;" 
+            frameborder="0" 
+            src="@mapUrl">
+        </iframe>
+    </div>  
 }
 
 
 @code {
     [Parameter]
     public string? breweryId { get; set; }
-    private Brewery data;
+    private Brewery pub;
+    private string? mapUrl;
     private int currentCount = 0;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            data = await Http.GetFromJsonAsync<Brewery>("https://api.openbrewerydb.org/v1/breweries/"+breweryId);
+            pub = await Http.GetFromJsonAsync<Brewery>("https://api.openbrewerydb.org/v1/breweries/"+breweryId);
+            mapUrl = getMap(pub.latitude, pub.longitude);
         }
         catch (Exception e)
         {
@@ -43,6 +43,10 @@
 
     }
 
+    public string getMap(string lat, string longit)
+    {
+        return $"https://www.google.com/maps/embed/v1/place?q={lat},{longit}&key=AIzaSyC5Lj9jbZC74qtZKB2GOiuEZjgkztE_RBY";
+    }
 
     private void IncrementCount()
     {
