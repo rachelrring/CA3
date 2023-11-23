@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject HttpClient Http
+@inject NavigationManager Navigation
 @using Microsoft.AspNetCore.Components.QuickGrid
 
 <PageTitle>Breweries</PageTitle>
@@ -16,7 +17,10 @@
 
 <QuickGrid Items="@data" Pagination="@pagination">
     <PropertyColumn Property="@(p => p.name)" Sortable="true" />
-    <PropertyColumn Property="@(p => p.brewery_type)" Sortable="true" />
+    <PropertyColumn Property="@(p => p.brewery_type)" />
+    <TemplateColumn Title="Link">
+        <button @onclick="@(() => navigateAway(context.id))">More details</button>
+    </TemplateColumn>
 </QuickGrid>
 
 <Paginator State="@pagination" />
@@ -40,6 +44,9 @@
         }
 
     }
+
+    public void navigateAway(string name) => Navigation.NavigateTo("brewery/" + name);
+
 
     public class Brewery
     {

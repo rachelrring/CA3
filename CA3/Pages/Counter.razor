@@ -1,4 +1,6 @@
 ﻿@page "/counter"
+@page "/brewery/{breweryId}"
+@inject HttpClient Http
 
 <PageTitle>Counter</PageTitle>
 
@@ -8,11 +10,62 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+@if (breweryId != null)
+{
+    <h1>@breweryId</h1>
+}
+
+@if (data != null)
+{
+    <ul>
+        <li>@data.name</li>
+    </ul>
+}
+
+
 @code {
+    [Parameter]
+    public string? breweryId { get; set; }
+    private Brewery data;
     private int currentCount = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            data = await Http.GetFromJsonAsync<Brewery>("https://api.openbrewerydb.org/v1/breweries/"+breweryId);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            throw e;
+        }
+
+    }
+
 
     private void IncrementCount()
     {
         currentCount++;
+    }
+
+    public class Brewery
+    {
+        public string id { get; set; }
+        public string name { get; set; }
+        public string brewery_type { get; set; }
+        public string address_1 { get; set; }
+        public string? address_2 { get; set; }
+        public string? address_3 { get; set; }
+        public string city { get; set; }
+        public string state_province { get; set; }
+        public string postal_code { get; set; }
+        public string country { get; set; }
+        public string longitude { get; set; }
+        public string latitude { get; set; }
+        public string phone { get; set; }
+        public string website_url { get; set; }
+        public string state { get; set; }
+        public string street { get; set; }
     }
 }
