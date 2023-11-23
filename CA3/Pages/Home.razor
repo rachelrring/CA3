@@ -5,7 +5,7 @@
 
 <PageTitle>Breweries</PageTitle>
 
-<div class="page-size-chooser">
+<div>
     Items per page:
     <select @bind="@pagination.ItemsPerPage">
         <option>5</option>
@@ -15,20 +15,53 @@
     </select>
 </div>
 
-<QuickGrid Items="@data" Pagination="@pagination">
-    <PropertyColumn Property="@(p => p.name)" Sortable="true" />
-    <PropertyColumn Property="@(p => p.brewery_type)" />
-    <TemplateColumn Title="Link">
-        <button @onclick="@(() => navigateAway(context.id))">More details</button>
-    </TemplateColumn>
-</QuickGrid>
+@if (countries != null)
+{
+    <div>
+        Country:
+		<select @bind="@country">
+			<option>All</option>
+            @foreach (var c in countries)
+            {
+                <option>@c</option>
+            }
+        </select>
+    </div>
+}
 
-<Paginator State="@pagination" />
+@if (data != null)
+{
+    <QuickGrid Items="@FilteredCountries" Pagination="@pagination">
+        <PropertyColumn Property="@(p => p.name)" Sortable="true" />
+        <PropertyColumn Property="@(p => p.brewery_type)" />
+        <TemplateColumn Title="Link">
+            <button @onclick="@(() => navigateAway(context.id))">More details</button>
+        </TemplateColumn>
+    </QuickGrid>
+
+    <Paginator State="@pagination" />
+}
 
 @code {
     PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
     private Brewery[] items;
-    private IQueryable<Brewery> data;
+    private IQueryable<Brewery>? data;
+    private string country { get; set; } = "All";
+    private IQueryable<string>? countries;
+
+    IQueryable<Brewery> FilteredCountries
+    {
+        get
+        {
+            if (country == "All")
+            {
+                return data;
+            }
+            return data.Where(d => d.state_province == country);
+        }
+    }
+
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -36,6 +69,7 @@
         {
             items = await Http.GetFromJsonAsync<Brewery[]>("https://api.openbrewerydb.org/v1/breweries?by_country=ireland");
             data = items.AsQueryable();
+            countries = data.Select(d => d.state_province).Where(d =>!string.IsNullOrEmpty(d)).Distinct();
         }
         catch (Exception e)
         {
@@ -46,7 +80,6 @@
     }
 
     public void navigateAway(string name) => Navigation.NavigateTo("brewery/" + name);
-
 
     public class Brewery
     {
