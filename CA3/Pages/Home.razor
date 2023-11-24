@@ -7,7 +7,7 @@
 
 @if (FilteredCounties != null)
 {
-    <div class="card">
+    <div class="card mx-auto" style="width: 75%;">
         <h3>Bars in @countyFilter</h3>
         <div class="list-group list-group-flush">
             @if (counties != null)
@@ -36,11 +36,11 @@
                     </div>
                 </div>
             }
-            <div class="list-group-item">
+            <div class="list-group-item row">
                 <QuickGrid Items="@FilteredCounties" Pagination="@pagination" class="card-body">
-                    <PropertyColumn Property="@(p => p.name)" Sortable="true" />
-                    <PropertyColumn Property="@(p => p.brewery_type)" />
-                    <TemplateColumn Title="Link">
+                    <PropertyColumn Property="@(p => p.name)" Sortable="true" class="col" />
+                    <PropertyColumn Property="@(p => p.brewery_type)" class="col" />
+                    <TemplateColumn Title="Link" class="col">
                         <button @onclick="@(() => navigateAway(context.id))">More details</button>
                     </TemplateColumn>
 				</QuickGrid>
