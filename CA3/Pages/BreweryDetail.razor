@@ -9,14 +9,58 @@
 else
 {
     <PageTitle>@pub.name</PageTitle>
-    <img src="images/pub.jpeg" height="50" width="50"/>
-    
-    <div id="google-maps-display" style="height:100%; width:100%;max-width:100%;">
-        <iframe style="height:100%;width:100%;border:0;" 
-            frameborder="0" 
-            src="@mapUrl">
-        </iframe>
-    </div>  
+    <div class="row align-content-start">
+        <a href="/">Go Home</a>
+    </div>
+    <div class="card mx-auto" style="width: 75%;">
+        <img src="images/pub.jpeg" class="card-img-top" style="height: 200px;" />
+        <h2>@pub.name</h2>
+        <div class="list-group list-group-flush">
+            <div class="list-group-item">
+                @if(pub.brewery_type != null)
+                {
+                    <div class="row">
+                        <div class="col-2">
+                            Brewery Type:
+                        </div>
+                        <div class="col-8">
+                            @pub.brewery_type
+                        </div>
+                    </div>
+                }
+                @if (pub.state_province != null)
+                {
+                    <div class="row">
+                        <div class="col-2">
+                            County:
+                        </div>
+                        <div class="col-8">
+                            @pub.state_province
+                        </div>
+                    </div>
+                }
+                @if (pub.postal_code != null)
+                {
+                    <div class="row">
+                        <div class="col-2">
+                            Postal Code:
+                        </div>
+                        <div class="col-8">
+                            @pub.postal_code
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="list-group list-group-flush">
+            <div id="google-maps-display" style="height:100%; width:100%;max-width:100%;">
+                <iframe style="height:100%;width:100%;border:0;" 
+                    frameborder="0" 
+                    src="@mapUrl">
+                </iframe>
+			</div>
+		</div>
+    </div>
 }
 
 
