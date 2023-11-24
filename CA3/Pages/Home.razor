@@ -5,54 +5,62 @@
 
 <PageTitle>Breweries</PageTitle>
 
-<div>
-    Items per page:
-    <select @bind="@pagination.ItemsPerPage">
-        <option>5</option>
-        <option>10</option>
-        <option>20</option>
-        <option>50</option>
-    </select>
-</div>
-
-@if (counties != null)
-{
-    <div>
-        Country:
-		<select @bind="@countyFilter">
-			<option>All</option>
-            @foreach (var c in counties)
-            {
-                <option>@c</option>
-            }
-        </select>
-    </div>
-}
-
 @if (FilteredCounties != null)
 {
-    <QuickGrid Items="@FilteredCounties" Pagination="@pagination">
-        <PropertyColumn Property="@(p => p.name)" Sortable="true" />
-        <PropertyColumn Property="@(p => p.brewery_type)" />
-        <TemplateColumn Title="Link">
-            <button @onclick="@(() => navigateAway(context.id))">More details</button>
-        </TemplateColumn>
-    </QuickGrid>
-
-    <Paginator State="@pagination" />
+    <div class="card">
+        <h3>Bars in @countyFilter</h3>
+        <div class="list-group list-group-flush">
+            @if (counties != null)
+            {
+                <div class="list-group-item container">
+                    <div class="row">
+                        <div class="col-sm">
+                            Country:
+                            <select @bind="@countyFilter">
+                                <option>All Counties</option>
+                                @foreach (var c in counties)
+                                {
+                                    <option>@c</option>
+                                }
+							</select>
+						</div>
+                        <div class="col-sm">
+                            Items per page:
+                            <select @bind="@pagination.ItemsPerPage">
+                                <option>5</option>
+                                <option>10</option>
+                                <option>20</option>
+                                <option>50</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div class="list-group-item">
+                <QuickGrid Items="@FilteredCounties" Pagination="@pagination" class="card-body">
+                    <PropertyColumn Property="@(p => p.name)" Sortable="true" />
+                    <PropertyColumn Property="@(p => p.brewery_type)" />
+                    <TemplateColumn Title="Link">
+                        <button @onclick="@(() => navigateAway(context.id))">More details</button>
+                    </TemplateColumn>
+				</QuickGrid>
+			</div>
+            <Paginator State="@pagination" />
+        </div>
+    </div>
 }
 
 @code {
     PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
     private IQueryable<Brewery>? data;
-    private string countyFilter { get; set; } = "All";
+    private string countyFilter { get; set; } = "All Counties";
     private IQueryable<string>? counties;
 
     IQueryable<Brewery> FilteredCounties
     {
         get
         {
-            if (countyFilter == "All")
+            if (countyFilter == "All Counties")
             {
                 return data;
             }
