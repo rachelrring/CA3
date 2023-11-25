@@ -1,0 +1,148 @@
+{
+  "id": "ca1a6a35-8a6a-4c46-9cc0-5b610ebcce07",
+  "version": "2.0",
+  "name": "CA3-WASM",
+  "url": "https://orange-stone-09d917710.4.azurestaticapps.net",
+  "tests": [{
+    "id": "1f84db7a-58af-44fa-b671-760ecdc73e99",
+    "name": "Home Page appears correctly",
+    "commands": [{
+      "id": "90e90c59-f6a0-4a02-bfbf-1971db9585c4",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "eab8b2cb-982a-45ea-848b-b2211d171c00",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "783x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "75b52943-a511-4b39-9243-036dea7d5d1b",
+      "comment": "",
+      "command": "click",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article/div/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Bars in All Counties')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b70972cc-f414-4b47-a62a-8c0f0ffe3655",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.container",
+      "targets": [
+        ["css=.container", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article/div/div/div", "xpath:idRelative"],
+        ["xpath=//div/div/div", "xpath:position"]
+      ],
+      "value": "Country:\\nAll Counties\\nLaois\\nDublin\\nCork\\nRoscommon\\nOffaly\\nDonegal\\nMonaghan\\nGalway\\nMeath\\nClare\\nTipperary\\nLouth\\nCarlow\\nKilkenny\\nLimerick\\nWestmeath\\nWexford\\nWaterford\\nKildare\\nKerry\\nSligo\\nMayo\\nWicklow\\nItems per page:\\n5\\n                                10\\n                                20\\n                                50"
+    }]
+  }, {
+    "id": "89281017-24e6-4771-a70e-c9a1d42d1a5c",
+    "name": "Correct Header appear on Home page",
+    "commands": [{
+      "id": "0aacfe3c-632e-4790-9584-f299d02adf02",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bd78b65c-9e72-4066-8784-d46a348402fc",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "784x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "345fdb3e-8bd5-4b44-a55b-a7dc3d713dea",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article/div/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Bars in All Counties')]", "xpath:innerText"]
+      ],
+      "value": "Bars in All Counties"
+    }]
+  }, {
+    "id": "9654ea1b-4a68-4805-ac1b-164dd6b77a3d",
+    "name": "Header changes when filter is applied",
+    "commands": [{
+      "id": "6548b8e5-0c16-4385-9408-9010b8778baa",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bc7901e4-ee6e-4777-9a77-7bf66db6bd25",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "784x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "16e3b98e-268a-450f-92c5-77c80b124f62",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article/div/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Bars in All Counties')]", "xpath:innerText"]
+      ],
+      "value": "Bars in All Counties"
+    }, {
+      "id": "e500ab67-a145-4dc9-80a6-dcfe2fa141f4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-sm:nth-child(1) > select",
+      "targets": [
+        ["css=.col-sm:nth-child(1) > select", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article/div/div/div/div/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5af318e6-c720-45ad-9131-758409b649c5",
+      "comment": "",
+      "command": "select",
+      "target": "css=.col-sm:nth-child(1) > select",
+      "targets": [],
+      "value": "label=Dublin"
+    }, {
+      "id": "8e6d5bab-9ccf-45ba-83fb-1bf42ce4d145",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article/div/h3", "xpath:idRelative"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Bars in Dublin')]", "xpath:innerText"]
+      ],
+      "value": "Bars in Dublin"
+    }]
+  }],
+  "suites": [{
+    "id": "c5620434-8d5a-4655-956b-e21e54dc197e",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["1f84db7a-58af-44fa-b671-760ecdc73e99"]
+  }],
+  "urls": ["https://orange-stone-09d917710.4.azurestaticapps.net/"],
+  "plugins": []
+}
