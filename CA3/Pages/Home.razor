@@ -42,7 +42,7 @@
                     <PropertyColumn Property="@(p => p.state_province)" Title="County" class="col" />
                     <PropertyColumn Property="@(p => p.brewery_type)" Title="Brewery Type" class="col" />
                     <TemplateColumn class="col">
-                        <button @onclick="@(() => navigateAway(context.id))">More details</button>
+                        <button class="btn btn-outline-primary" @onclick="@(() => navigateAway(context.id))">More details</button>
                     </TemplateColumn>
 				</QuickGrid>
 			</div>
