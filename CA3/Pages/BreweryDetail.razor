@@ -1,6 +1,7 @@
 ﻿@page "/counter"
 @page "/brewery/{breweryId}"
 @inject HttpClient Http
+@inject NavigationManager Navigation
 
 @if (pub == null)
 {
@@ -10,7 +11,7 @@ else
 {
     <PageTitle>@pub.name</PageTitle>
     <div class="align-content-start">
-        <button href="/" class="btn btn-outline-primary">Go Home</button>
+        <button @onclick="@(() => Navigation.NavigateTo("/"))" class="btn btn-outline-primary">Go Home</button>
     </div>
     <div class="card mx-auto" style="width: 75%;">
         <img src="images/pub.jpeg" class="card-img-top" style="height: 200px;" />
