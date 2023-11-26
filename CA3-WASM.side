@@ -1,27 +1,27 @@
 {
-  "id": "ca1a6a35-8a6a-4c46-9cc0-5b610ebcce07",
+  "id": "a0fc9c74-44a2-441b-81e2-16294f65f85a",
   "version": "2.0",
-  "name": "CA3-WASM",
+  "name": "CA3-EAD1",
   "url": "https://orange-stone-09d917710.4.azurestaticapps.net",
   "tests": [{
-    "id": "1f84db7a-58af-44fa-b671-760ecdc73e99",
-    "name": "Home Page appears correctly",
+    "id": "c9499378-69bd-4fb0-905e-ae9be0a700f0",
+    "name": "Correct Landing Page",
     "commands": [{
-      "id": "90e90c59-f6a0-4a02-bfbf-1971db9585c4",
+      "id": "52abfaa4-d059-445a-90ae-1601397d595e",
       "comment": "",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
-      "id": "eab8b2cb-982a-45ea-848b-b2211d171c00",
+      "id": "dce45808-b2b3-4468-a74f-92d4e2a85649",
       "comment": "",
       "command": "setWindowSize",
-      "target": "783x816",
+      "target": "784x816",
       "targets": [],
       "value": ""
     }, {
-      "id": "75b52943-a511-4b39-9243-036dea7d5d1b",
+      "id": "04ee6624-0e16-4897-9e34-5076e1be77d8",
       "comment": "",
       "command": "click",
       "target": "css=h3",
@@ -33,78 +33,43 @@
       ],
       "value": ""
     }, {
-      "id": "b70972cc-f414-4b47-a62a-8c0f0ffe3655",
+      "id": "8a035be9-ba23-4af9-9062-60b905f7ddca",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Breweries",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a4b97d75-dab5-4495-8366-6e2ac6b4231d",
       "comment": "",
       "command": "assertText",
-      "target": "css=.container",
+      "target": "css=.list-group-item:nth-child(2)",
       "targets": [
-        ["css=.container", "css:finder"],
-        ["xpath=//div[@id='app']/div/main/article/div/div/div", "xpath:idRelative"],
-        ["xpath=//div/div/div", "xpath:position"]
+        ["css=.list-group-item:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article/div/div/div[2]", "xpath:idRelative"],
+        ["xpath=//article/div/div/div[2]", "xpath:position"]
       ],
-      "value": "Country:\\nAll Counties\\nLaois\\nDublin\\nCork\\nRoscommon\\nOffaly\\nDonegal\\nMonaghan\\nGalway\\nMeath\\nClare\\nTipperary\\nLouth\\nCarlow\\nKilkenny\\nLimerick\\nWestmeath\\nWexford\\nWaterford\\nKildare\\nKerry\\nSligo\\nMayo\\nWicklow\\nItems per page:\\n5\\n                                10\\n                                20\\n                                50"
+      "value": "Brewery Name\\nCounty\\nBrewery Type\\n12 Acres Brewing Company Laois micro More details\\n5 Lamps Brewery Dublin regional More details\\n9 White Deer Brewery Cork micro More details\\nBallykilcavan Brewing Company Laois micro More details\\nBarrelhead Brewery Dublin micro More details\\nBeamish and Crawford (Heineken) Cork large More details\\nBlack Donkey Brewing Roscommon micro More details\\nBlacks Brewery Cork micro More details\\nBo Bristle Brewing Co. Offaly micro More details\\nBoghopper Brewery Donegal micro More details"
     }]
   }, {
-    "id": "89281017-24e6-4771-a70e-c9a1d42d1a5c",
-    "name": "Correct Header appear on Home page",
+    "id": "6d71e6a1-129d-41d1-adfc-bd0bd7bc3216",
+    "name": "Correct Filtering",
     "commands": [{
-      "id": "0aacfe3c-632e-4790-9584-f299d02adf02",
+      "id": "623a4124-94f7-46b1-83c4-0552801d25af",
       "comment": "",
       "command": "open",
       "target": "/",
       "targets": [],
       "value": ""
     }, {
-      "id": "bd78b65c-9e72-4066-8784-d46a348402fc",
+      "id": "5ef83838-3825-4834-91f1-c56c4475003a",
       "comment": "",
       "command": "setWindowSize",
       "target": "784x816",
       "targets": [],
       "value": ""
     }, {
-      "id": "345fdb3e-8bd5-4b44-a55b-a7dc3d713dea",
-      "comment": "",
-      "command": "assertText",
-      "target": "css=h3",
-      "targets": [
-        ["css=h3", "css:finder"],
-        ["xpath=//div[@id='app']/div/main/article/div/h3", "xpath:idRelative"],
-        ["xpath=//h3", "xpath:position"],
-        ["xpath=//h3[contains(.,'Bars in All Counties')]", "xpath:innerText"]
-      ],
-      "value": "Bars in All Counties"
-    }]
-  }, {
-    "id": "9654ea1b-4a68-4805-ac1b-164dd6b77a3d",
-    "name": "Header changes when filter is applied",
-    "commands": [{
-      "id": "6548b8e5-0c16-4385-9408-9010b8778baa",
-      "comment": "",
-      "command": "open",
-      "target": "/",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "bc7901e4-ee6e-4777-9a77-7bf66db6bd25",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "784x816",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "16e3b98e-268a-450f-92c5-77c80b124f62",
-      "comment": "",
-      "command": "assertText",
-      "target": "css=h3",
-      "targets": [
-        ["css=h3", "css:finder"],
-        ["xpath=//div[@id='app']/div/main/article/div/h3", "xpath:idRelative"],
-        ["xpath=//h3", "xpath:position"],
-        ["xpath=//h3[contains(.,'Bars in All Counties')]", "xpath:innerText"]
-      ],
-      "value": "Bars in All Counties"
-    }, {
-      "id": "e500ab67-a145-4dc9-80a6-dcfe2fa141f4",
+      "id": "842e81b6-975f-4e48-a6f1-6b4521971d6b",
       "comment": "",
       "command": "click",
       "target": "css=.col-sm:nth-child(1) > select",
@@ -115,14 +80,14 @@
       ],
       "value": ""
     }, {
-      "id": "5af318e6-c720-45ad-9131-758409b649c5",
+      "id": "9ed87e31-1531-405b-878d-a6e996909946",
       "comment": "",
       "command": "select",
       "target": "css=.col-sm:nth-child(1) > select",
       "targets": [],
       "value": "label=Dublin"
     }, {
-      "id": "8e6d5bab-9ccf-45ba-83fb-1bf42ce4d145",
+      "id": "3360c0f2-97d6-457d-8191-64597f20e834",
       "comment": "",
       "command": "assertText",
       "target": "css=h3",
@@ -133,15 +98,164 @@
         ["xpath=//h3[contains(.,'Bars in Dublin')]", "xpath:innerText"]
       ],
       "value": "Bars in Dublin"
+    }, {
+      "id": "0f587fa5-e5a4-497b-ae2a-f62e442c61bb",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "fc790cee-612c-4b44-ad74-66080d57d4aa",
+    "name": "More Detail",
+    "commands": [{
+      "id": "066c216d-80fb-45ae-9f53-498c7202bf30",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d27ff0f1-78e3-46ad-98f2-5d71574e9728",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "784x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cfc99615-5f9d-408c-aa16-ec93d13e6e73",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(1) .btn",
+      "targets": [
+        ["css=tr:nth-child(1) .btn", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article/div/div/div[2]/table/tbody/tr/td[4]/button", "xpath:idRelative"],
+        ["xpath=//td[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'More details')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e60f836d-d7ee-48e9-91c5-14694c30cc5f",
+      "comment": "",
+      "command": "click",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'12 Acres Brewing Company')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "aa58377b-64c7-46cd-8bb3-9538bf1d9634",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h2",
+      "targets": [
+        ["css=h2", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article/div[2]/h2", "xpath:idRelative"],
+        ["xpath=//h2", "xpath:position"],
+        ["xpath=//h2[contains(.,'12 Acres Brewing Company')]", "xpath:innerText"]
+      ],
+      "value": "12 Acres Brewing Company"
+    }, {
+      "id": "278edeca-9718-442d-a9a2-34d2f4385f65",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list-group-item",
+      "targets": [
+        ["css=.list-group-item", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article/div[2]/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ae65a828-3033-430a-8cd5-2b479ceaf6d0",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.row:nth-child(1) strong",
+      "targets": [
+        ["css=.row:nth-child(1) strong", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article/div[2]/div/div/div/div/strong", "xpath:idRelative"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'Brewery Type:')]", "xpath:innerText"]
+      ],
+      "value": "Brewery Type:"
+    }]
+  }, {
+    "id": "71343272-ca4a-41e0-b798-020bdd2a4201",
+    "name": "Go Home Link brings you home",
+    "commands": [{
+      "id": "2f1a2204-8da4-4054-bd60-6ae65fccf9d8",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "23567ff6-db02-42fc-883d-60d1cd49ae8a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "784x816",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "046c1d94-3b8a-4792-9d84-c3f26859e746",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(1) .btn",
+      "targets": [
+        ["css=tr:nth-child(1) .btn", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article/div/div/div[2]/table/tbody/tr/td[4]/button", "xpath:idRelative"],
+        ["xpath=//td[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'More details')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "130e0f19-fc03-47c6-810b-e8ed834615a6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.content",
+      "targets": [
+        ["css=.content", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article", "xpath:idRelative"],
+        ["xpath=//article", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9454b825-ca66-492a-a57b-ef2ec4792893",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//button[contains(.,'Go Home')]",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Go Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9c5de87d-ecf6-4148-ad0a-283c46c4db91",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//div[@id='app']/div/main/article/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Go Home')]", "xpath:innerText"]
+      ],
+      "value": ""
     }]
   }],
   "suites": [{
-    "id": "c5620434-8d5a-4655-956b-e21e54dc197e",
+    "id": "cc6b7c85-abb4-46f5-a557-c0a689759310",
     "name": "Default Suite",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["1f84db7a-58af-44fa-b671-760ecdc73e99"]
+    "tests": ["c9499378-69bd-4fb0-905e-ae9be0a700f0"]
   }],
   "urls": ["https://orange-stone-09d917710.4.azurestaticapps.net/"],
   "plugins": []
