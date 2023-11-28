@@ -14,7 +14,7 @@ else
         <button @onclick="@(() => Navigation.NavigateTo("/"))" class="btn btn-outline-primary">Go Home</button>
     </div>
     <div class="card mx-auto" style="width: 75%;">
-        <img src="images/pub.jpeg" class="card-img-top" style="height: 200px;" />
+        <img src=@bannerUrl class="card-img-top" style="height: 200px;" />
         <h2>@pub.name</h2>
         <div class="list-group list-group-flush">
             <div class="list-group-item">
@@ -78,6 +78,7 @@ else
     public string? breweryId { get; set; }
     private Brewery pub;
     private string? mapUrl;
+    private string? bannerUrl;
 
     protected override async Task OnInitializedAsync()
     {
@@ -85,6 +86,7 @@ else
         {
             pub = await Http.GetFromJsonAsync<Brewery>("https://api.openbrewerydb.org/v1/breweries/"+breweryId);
             mapUrl = getMap(pub.latitude, pub.longitude);
+            bannerUrl = getBanner();
         }
         catch (Exception e)
         {
@@ -97,6 +99,13 @@ else
     public string getMap(string lat, string longit)
     {
         return $"https://www.google.com/maps/embed/v1/place?q={lat},{longit}&key=AIzaSyC5Lj9jbZC74qtZKB2GOiuEZjgkztE_RBY";
+    }
+
+    public string getBanner()
+    {
+        Random rnd = new Random();
+        int photoNum = rnd.Next(10);
+        return $"images/pub{photoNum}.jpeg";
     }
 
 
