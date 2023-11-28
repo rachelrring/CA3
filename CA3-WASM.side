@@ -97,7 +97,7 @@
         ["xpath=//h3", "xpath:position"],
         ["xpath=//h3[contains(.,'Bars in Dublin')]", "xpath:innerText"]
       ],
-      "value": "Bars in Dublin"
+      "value": "Breweries in Dublin"
     }, {
       "id": "0f587fa5-e5a4-497b-ae2a-f62e442c61bb",
       "comment": "",
