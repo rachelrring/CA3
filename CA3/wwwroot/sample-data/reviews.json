@@ -1,0 +1,632 @@
+[
+  {
+    "id": 1,
+    "rating": 5,
+    "comment": "Great brewery"
+  },
+  {
+    "id": 2,
+    "rating": 4,
+    "comment": "Excellent experience"
+  },
+  {
+    "id": 3,
+    "rating": 3,
+    "comment": "Good but could be better"
+  },
+  {
+    "id": 4,
+    "rating": 5,
+    "comment": "Outstanding service"
+  },
+  {
+    "id": 5,
+    "rating": 2,
+    "comment": "Disappointing"
+  },
+  {
+    "id": 6,
+    "rating": 4,
+    "comment": "Solid choice"
+  },
+  {
+    "id": 7,
+    "rating": 5,
+    "comment": "Fantastic atmosphere"
+  },
+  {
+    "id": 8,
+    "rating": 3,
+    "comment": "Decent experience"
+  },
+  {
+    "id": 9,
+    "rating": 4,
+    "comment": "Wonderful place"
+  },
+  {
+    "id": 10,
+    "rating": 2,
+    "comment": "Needs improvement"
+  },
+  {
+    "id": 11,
+    "rating": 5,
+    "comment": "Amazing beer selection"
+  },
+  {
+    "id": 12,
+    "rating": 4,
+    "comment": "Enjoyable evening"
+  },
+  {
+    "id": 13,
+    "rating": 3,
+    "comment": "Average experience"
+  },
+  {
+    "id": 14,
+    "rating": 5,
+    "comment": "Top-notch brewery"
+  },
+  {
+    "id": 15,
+    "rating": 4,
+    "comment": "Impressive offerings"
+  },
+  {
+    "id": 16,
+    "rating": 3,
+    "comment": "Mediocre at best"
+  },
+  {
+    "id": 17,
+    "rating": 5,
+    "comment": "Exceptional service"
+  },
+  {
+    "id": 18,
+    "rating": 4,
+    "comment": "Well-crafted beers"
+  },
+  {
+    "id": 19,
+    "rating": 3,
+    "comment": "Room for improvement"
+  },
+  {
+    "id": 20,
+    "rating": 5,
+    "comment": "Unforgettable experience"
+  },
+  {
+    "id": 21,
+    "rating": 1,
+    "comment": "Terrible experience"
+  },
+  {
+    "id": 22,
+    "rating": 2,
+    "comment": "Awful service"
+  },
+  {
+    "id": 23,
+    "rating": 1,
+    "comment": "Worst brewery ever"
+  },
+  {
+    "id": 24,
+    "rating": 3,
+    "comment": "Below average"
+  },
+  {
+    "id": 25,
+    "rating": 1,
+    "comment": "Regrettable visit"
+  },
+  {
+    "id": 26,
+    "rating": 2,
+    "comment": "Not worth the hype"
+  },
+  {
+    "id": 27,
+    "rating": 1,
+    "comment": "Horrible beer selection"
+  },
+  {
+    "id": 28,
+    "rating": 2,
+    "comment": "Unpleasant atmosphere"
+  },
+  {
+    "id": 29,
+    "rating": 1,
+    "comment": "Disgusting experience"
+  },
+  {
+    "id": 30,
+    "rating": 2,
+    "comment": "Rude staff"
+  },
+  {
+    "id": 31,
+    "rating": 1,
+    "comment": "Abysmal service"
+  },
+  {
+    "id": 32,
+    "rating": 2,
+    "comment": "Waste of time and money"
+  },
+  {
+    "id": 33,
+    "rating": 1,
+    "comment": "Never coming back"
+  },
+  {
+    "id": 34,
+    "rating": 2,
+    "comment": "Overrated brewery"
+  },
+  {
+    "id": 35,
+    "rating": 1,
+    "comment": "Avoid at all costs"
+  },
+  {
+    "id": 36,
+    "rating": 4,
+    "comment": "Decent brewery"
+  },
+  {
+    "id": 37,
+    "rating": 3,
+    "comment": "Middle-of-the-road experience"
+  },
+  {
+    "id": 38,
+    "rating": 2,
+    "comment": "Standard beer selection"
+  },
+  {
+    "id": 39,
+    "rating": 4,
+    "comment": "Average atmosphere"
+  },
+  {
+    "id": 40,
+    "rating": 3,
+    "comment": "Okay place to visit"
+  },
+  {
+    "id": 41,
+    "rating": 4,
+    "comment": "Not bad, not great"
+  },
+  {
+    "id": 42,
+    "rating": 2,
+    "comment": "Average beer offerings"
+  },
+  {
+    "id": 43,
+    "rating": 3,
+    "comment": "Fair service"
+  },
+  {
+    "id": 44,
+    "rating": 4,
+    "comment": "Neutral experience"
+  },
+  {
+    "id": 45,
+    "rating": 2,
+    "comment": "Neither good nor bad"
+  },
+  {
+    "id": 46,
+    "rating": 4,
+    "comment": "Adequate brewery"
+  },
+  {
+    "id": 47,
+    "rating": 3,
+    "comment": "Middle-tier establishment"
+  },
+  {
+    "id": 48,
+    "rating": 2,
+    "comment": "Standard beer experience"
+  },
+  {
+    "id": 49,
+    "rating": 4,
+    "comment": "Just okay brewery"
+  },
+  {
+    "id": 50,
+    "rating": 3,
+    "comment": "Average visit"
+  },
+  {
+    "id": 51,
+    "rating": 1,
+    "comment": "So-so brewery"
+  },
+  {
+    "id": 52,
+    "rating": 2,
+    "comment": "Middle-of-the-pack experience"
+  },
+  {
+    "id": 53,
+    "rating": 1,
+    "comment": "Standard beer selection"
+  },
+  {
+    "id": 54,
+    "rating": 2,
+    "comment": "Adequate atmosphere"
+  },
+  {
+    "id": 55,
+    "rating": 1,
+    "comment": "Average place to visit"
+  },
+  {
+    "id": 56,
+    "rating": 2,
+    "comment": "Neither impressive nor terrible"
+  },
+  {
+    "id": 57,
+    "rating": 1,
+    "comment": "Mediocre beer offerings"
+  },
+  {
+    "id": 58,
+    "rating": 2,
+    "comment": "Okay service"
+  },
+  {
+    "id": 59,
+    "rating": 1,
+    "comment": "Fair experience"
+  },
+  {
+    "id": 60,
+    "rating": 2,
+    "comment": "Decent but not outstanding"
+  },
+  {
+    "id": 61,
+    "rating": 1,
+    "comment": "Average brewery"
+  },
+  {
+    "id": 62,
+    "rating": 2,
+    "comment": "Middle-tier beer spot"
+  },
+  {
+    "id": 63,
+    "rating": 1,
+    "comment": "Standard visit"
+  },
+  {
+    "id": 64,
+    "rating": 2,
+    "comment": "Just a regular brewery"
+  },
+  {
+    "id": 65,
+    "rating": 1,
+    "comment": "Run-of-the-mill experience"
+  },
+  {
+    "id": 66,
+    "rating": 2,
+    "comment": "Average beer choices"
+  },
+  {
+    "id": 67,
+    "rating": 1,
+    "comment": "Not bad, not great"
+  },
+  {
+    "id": 68,
+    "rating": 2,
+    "comment": "Ordinary atmosphere"
+  },
+  {
+    "id": 69,
+    "rating": 1,
+    "comment": "Satisfactory service"
+  },
+  {
+    "id": 70,
+    "rating": 2,
+    "comment": "Typical brewery experience"
+  },
+  {
+    "id": 71,
+    "rating": 1,
+    "comment": "Middle-of-the-road brewery"
+  },
+  {
+    "id": 72,
+    "rating": 2,
+    "comment": "Standard beer varieties"
+  },
+  {
+    "id": 73,
+    "rating": 1,
+    "comment": "Average ambiance"
+  },
+  {
+    "id": 74,
+    "rating": 2,
+    "comment": "Just an average visit"
+  },
+  {
+    "id": 75,
+    "rating": 1,
+    "comment": "Okay beer offerings"
+  },
+  {
+    "id": 76,
+    "rating": 2,
+    "comment": "Decent service"
+  },
+  {
+    "id": 77,
+    "rating": 1,
+    "comment": "Fairly ordinary experience"
+  },
+  {
+    "id": 78,
+    "rating": 2,
+    "comment": "Run-of-the-mill brewery"
+  },
+  {
+    "id": 79,
+    "rating": 1,
+    "comment": "Acceptable beer selection"
+  },
+  {
+    "id": 80,
+    "rating": 2,
+    "comment": "Typical brewery ambiance"
+  },
+  {
+    "id": 81,
+    "rating": 1,
+    "comment": "Middle-tier beer experience"
+  },
+  {
+    "id": 82,
+    "rating": 2,
+    "comment": "Standard visitation"
+  },
+  {
+    "id": 83,
+    "rating": 1,
+    "comment": "Average quality"
+  },
+  {
+    "id": 84,
+    "rating": 2,
+    "comment": "Just an okay brewery"
+  },
+  {
+    "id": 85,
+    "rating": 1,
+    "comment": "Standard beer options"
+  },
+  {
+    "id": 86,
+    "rating": 2,
+    "comment": "Average customer service"
+  },
+  {
+    "id": 87,
+    "rating": 1,
+    "comment": "Nothing special"
+  },
+  {
+    "id": 88,
+    "rating": 2,
+    "comment": "Regular brewery"
+  },
+  {
+    "id": 89,
+    "rating": 1,
+    "comment": "Middle-of-the-road ambiance"
+  },
+  {
+    "id": 90,
+    "rating": 2,
+    "comment": "Standard beer experience"
+  },
+  {
+    "id": 91,
+    "rating": 1,
+    "comment": "Adequate visit"
+  },
+  {
+    "id": 92,
+    "rating": 2,
+    "comment": "Typical beer choices"
+  },
+  {
+    "id": 93,
+    "rating": 1,
+    "comment": "Fairly standard service"
+  },
+  {
+    "id": 94,
+    "rating": 2,
+    "comment": "Run-of-the-mill atmosphere"
+  },
+  {
+    "id": 95,
+    "rating": 1,
+    "comment": "Decent brewery experience"
+  },
+  {
+    "id": 96,
+    "rating": 2,
+    "comment": "Standard beer offerings"
+  },
+  {
+    "id": 97,
+    "rating": 1,
+    "comment": "Average beer spot"
+  },
+  {
+    "id": 98,
+    "rating": 2,
+    "comment": "Middle-tier brewery"
+  },
+  {
+    "id": 99,
+    "rating": 1,
+    "comment": "Regular visit"
+  },
+  {
+    "id": 100,
+    "rating": 2,
+    "comment": "Standard beer selection"
+  },
+  {
+    "id": 101,
+    "rating": 5,
+    "comment": "Exceptional brewery"
+  },
+  {
+    "id": 102,
+    "rating": 4,
+    "comment": "Outstanding experience"
+  },
+  {
+    "id": 103,
+    "rating": 5,
+    "comment": "Fantastic place"
+  },
+  {
+    "id": 104,
+    "rating": 4,
+    "comment": "Impressive service"
+  },
+  {
+    "id": 105,
+    "rating": 5,
+    "comment": "Best brewery in town"
+  },
+  {
+    "id": 106,
+    "rating": 4,
+    "comment": "Enjoyable atmosphere"
+  },
+  {
+    "id": 107,
+    "rating": 5,
+    "comment": "Superb beer selection"
+  },
+  {
+    "id": 108,
+    "rating": 4,
+    "comment": "Delightful evening"
+  },
+  {
+    "id": 109,
+    "rating": 5,
+    "comment": "Terrific brewery"
+  },
+  {
+    "id": 110,
+    "rating": 4,
+    "comment": "Great place to visit"
+  },
+  {
+    "id": 111,
+    "rating": 5,
+    "comment": "Exceptional beer variety"
+  },
+  {
+    "id": 112,
+    "rating": 4,
+    "comment": "Wonderful ambiance"
+  },
+  {
+    "id": 113,
+    "rating": 5,
+    "comment": "Top-rated brewery"
+  },
+  {
+    "id": 114,
+    "rating": 4,
+    "comment": "Awesome offerings"
+  },
+  {
+    "id": 115,
+    "rating": 5,
+    "comment": "Spectacular experience"
+  },
+  {
+    "id": 116,
+    "rating": 4,
+    "comment": "Well-crafted selections"
+  },
+  {
+    "id": 117,
+    "rating": 5,
+    "comment": "Phenomenal service"
+  },
+  {
+    "id": 118,
+    "rating": 4,
+    "comment": "Impressive beer lineup"
+  },
+  {
+    "id": 119,
+    "rating": 5,
+    "comment": "Memorable visit"
+  },
+  {
+    "id": 120,
+    "rating": 4,
+    "comment": "High-quality brews"
+  },
+  {
+    "id": 121,
+    "rating": 5,
+    "comment": "Exceptional atmosphere"
+  },
+  {
+    "id": 122,
+    "rating": 4,
+    "comment": "Delightful service"
+  },
+  {
+    "id": 123,
+    "rating": 5,
+    "comment": "Outstanding brewery"
+  },
+  {
+    "id": 124,
+    "rating": 4,
+    "comment": "Fantastic beer experience"
+  },
+  {
+    "id": 125,
+    "rating": 5,
+    "comment": "Unforgettable evening"
+  },
+  {
+    "id": 126,
+    "rating": 4,
+    "comment": "Amazing beer choices"
+  }
+]

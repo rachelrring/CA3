@@ -69,6 +69,22 @@ else
                 </iframe>
 			</div>
 		</div>
+        @if (ChosenReviews.Count() != 0)
+        {
+            <div class="list-group list-group-flush">
+                <table class="table">
+                    <tbody>
+                        @foreach (var entry in ChosenReviews)
+                        {
+                            <tr>
+                                <td>@entry.rating</td>
+                                <td>@entry.comment</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
     </div>
 }
 
@@ -79,6 +95,16 @@ else
     private Brewery pub;
     private string? mapUrl;
     private string? bannerUrl;
+    private IQueryable<Review>? reviews;
+
+    IQueryable<Review> ChosenReviews
+    {
+        get
+        {
+            var r = reviews.OrderBy(_ => Guid.NewGuid()).Take(6);
+            return r;
+        }
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -87,6 +113,8 @@ else
             pub = await Http.GetFromJsonAsync<Brewery>("https://api.openbrewerydb.org/v1/breweries/"+breweryId);
             mapUrl = getMap(pub.latitude, pub.longitude);
             bannerUrl = getBanner();
+            var r = await Http.GetFromJsonAsync<Review[]>("sample-data/reviews.json");
+            reviews = r.AsQueryable();
         }
         catch (Exception e)
         {
@@ -127,5 +155,12 @@ else
         public string website_url { get; set; }
         public string state { get; set; }
         public string street { get; set; }
+    }
+
+    public class Review
+    {
+        public int id { get; set; }
+        public int rating { get; set; }
+        public string comment { get; set; }
     }
 }
