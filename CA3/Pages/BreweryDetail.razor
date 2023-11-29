@@ -3,6 +3,12 @@
 @inject HttpClient Http
 @inject NavigationManager Navigation
 
+<style>
+    .checked {
+        color: orange;
+    }
+</style>
+
 @if (pub == null)
 {
     <p>There has been an error, click <a href="/">here</a> to return home</p>
@@ -77,8 +83,14 @@ else
                         @foreach (var entry in ChosenReviews)
                         {
                             <tr>
-                                <td>@entry.rating</td>
-                                <td>@entry.comment</td>
+                                <td>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                </td>
+								<td><em>"@entry.comment"</em></td>
                             </tr>
                         }
                     </tbody>
