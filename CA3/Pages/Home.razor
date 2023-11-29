@@ -5,12 +5,12 @@
 
 <PageTitle>Breweries</PageTitle>
 
-@if (FilteredCounties != null)
+@if (FilteredCounties.Any())
 {
     <div class="card mx-auto" style="width: 75%;">
         <h3>Breweries in @countyFilter</h3>
         <div class="list-group list-group-flush">
-            @if (counties != null)
+            @if (counties!.Any())
             {
                 <div class="list-group-item container">
                     <div class="row">
@@ -18,7 +18,7 @@
                             Country:
                             <select @bind="@countyFilter">
                                 <option>All Counties</option>
-                                @foreach (var c in counties)
+                                @foreach (var c in counties!)
                                 {
                                     <option>@c</option>
                                 }
@@ -42,7 +42,7 @@
                     <PropertyColumn Property="@(p => p.state_province)" Title="County" class="col" />
                     <PropertyColumn Property="@(p => p.brewery_type)" Title="Brewery Type" class="col" />
                     <TemplateColumn class="col">
-                        <button class="btn btn-outline-primary" @onclick="@(() => navigateAway(context.id))">More details</button>
+                        <button class="btn btn-outline-primary" @onclick="@(() => navigateAway(context.id!))">More details</button>
                     </TemplateColumn>
 				</QuickGrid>
 			</div>
@@ -61,11 +61,15 @@
     {
         get
         {
-            if (countyFilter == "All Counties")
+            if(data != null)
             {
-                return data;
+                if (countyFilter == "All Counties")
+                {
+                    return data;
+                }
+                return data.Where(d => d.state_province == countyFilter);
             }
-            return data.Where(d => d.state_province == countyFilter);
+            return Enumerable.Empty<Brewery>().AsQueryable();
         }
     }
 
@@ -76,8 +80,8 @@
         try
         {
             var items = await Http.GetFromJsonAsync<Brewery[]>("https://api.openbrewerydb.org/v1/breweries?by_country=ireland");
-            data = items.AsQueryable();
-            counties = data.Select(d => d.state_province).Where(d =>!string.IsNullOrEmpty(d)).Distinct();
+            data = items!.AsQueryable();
+            counties = data.Select(d => d.state_province).Where(d =>!string.IsNullOrEmpty(d)).Distinct()!;
         }
         catch (Exception e)
         {
@@ -91,21 +95,21 @@
 
     public class Brewery
     {
-        public string id { get; set; }
-        public string name { get; set; }
-        public string brewery_type { get; set; }
-        public string address_1 { get; set; }
+        public string? id { get; set; }
+        public string? name { get; set; }
+        public string? brewery_type { get; set; }
+        public string? address_1 { get; set; }
         public string? address_2 { get; set; }
         public string? address_3 { get; set; }
-        public string city { get; set; }
-        public string state_province { get; set; }
-        public string postal_code { get; set; }
-        public string country { get; set; }
-        public string longitude { get; set; }
-        public string latitude { get; set; }
-        public string phone { get; set; }
-        public string website_url { get; set; }
-        public string state { get; set; }
-        public string street { get; set; }
+        public string? city { get; set; }
+        public string? state_province { get; set; }
+        public string? postal_code { get; set; }
+        public string? country { get; set; }
+        public string? longitude { get; set; }
+        public string? latitude { get; set; }
+        public string? phone { get; set; }
+        public string? website_url { get; set; }
+        public string? state { get; set; }
+        public string? street { get; set; }
     }
 }

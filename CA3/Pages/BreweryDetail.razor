@@ -75,7 +75,7 @@ else
                 </iframe>
 			</div>
 		</div>
-        @if (ChosenReviews.Count() != 0)
+        @if (ChosenReviews.Any())
         {
             <div class="list-group list-group-flush">
                 <div class="list-group-item">
@@ -113,7 +113,7 @@ else
 @code {
     [Parameter]
     public string? breweryId { get; set; }
-    private Brewery pub;
+    private Brewery? pub;
     private string? mapUrl;
     private string? bannerUrl;
     private IQueryable<Review>? reviews;
@@ -122,12 +122,19 @@ else
     {
         get
         {
-            double rtng = 0;
-            foreach(var r in ChosenReviews)
+            if (reviews != null)
             {
-                rtng = rtng + r.rating;
+                double rtng = 0;
+                foreach(var r in ChosenReviews)
+                {
+                    if (r.rating != null)
+                    {
+                        rtng = rtng + Convert.ToInt32(r.rating);
+                    }
+                }
+                return Math.Round(rtng / 6, 2);
             }
-            return Math.Round(rtng / 6, 2);
+            return 0;
         }
     }
 
@@ -135,8 +142,12 @@ else
     {
         get
         {
-            var r = reviews.OrderBy(_ => Guid.NewGuid()).Take(6);
-            return r;
+            if(reviews != null)
+            {
+                var r = reviews.OrderBy(_ => Guid.NewGuid()).Take(6);
+                return r;
+            }
+            return Enumerable.Empty<Review>().AsQueryable();
         }
     }
 
@@ -145,10 +156,13 @@ else
         try
         {
             pub = await Http.GetFromJsonAsync<Brewery>("https://api.openbrewerydb.org/v1/breweries/"+breweryId);
-            mapUrl = getMap(pub.latitude, pub.longitude);
+            if (pub!.latitude != null && pub!.longitude != null)
+            {
+                mapUrl = getMap(pub!.latitude, pub!.longitude);
+            }
             bannerUrl = getBanner();
             var r = await Http.GetFromJsonAsync<Review[]>("sample-data/reviews.json");
-            reviews = r.AsQueryable();
+            reviews = r!.AsQueryable();
         }
         catch (Exception e)
         {
@@ -173,28 +187,28 @@ else
 
     public class Brewery
     {
-        public string id { get; set; }
-        public string name { get; set; }
-        public string brewery_type { get; set; }
-        public string address_1 { get; set; }
+        public string? id { get; set; }
+        public string? name { get; set; }
+        public string? brewery_type { get; set; }
+        public string? address_1 { get; set; }
         public string? address_2 { get; set; }
         public string? address_3 { get; set; }
-        public string city { get; set; }
-        public string state_province { get; set; }
-        public string postal_code { get; set; }
-        public string country { get; set; }
-        public string longitude { get; set; }
-        public string latitude { get; set; }
-        public string phone { get; set; }
-        public string website_url { get; set; }
-        public string state { get; set; }
-        public string street { get; set; }
+        public string? city { get; set; }
+        public string? state_province { get; set; }
+        public string? postal_code { get; set; }
+        public string? country { get; set; }
+        public string? longitude { get; set; }
+        public string? latitude { get; set; }
+        public string? phone { get; set; }
+        public string? website_url { get; set; }
+        public string? state { get; set; }
+        public string? street { get; set; }
     }
 
     public class Review
     {
-        public int id { get; set; }
-        public int rating { get; set; }
-        public string comment { get; set; }
+        public int? id { get; set; }
+        public int? rating { get; set; }
+        public string? comment { get; set; }
     }
 }
